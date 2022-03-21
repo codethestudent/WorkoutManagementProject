@@ -10,7 +10,7 @@ public class WorkoutManagementSys {
 		int i = 1;
 		List<String> array = new ArrayList<String>();
 		
-		while(true) {
+		while(true) { //show the menus until user exit the code.
 			System.out.println("1. Add Workout days");
 			System.out.println("2. Delete Workout days");
 			System.out.println("3. Edit Workout day");
@@ -21,7 +21,7 @@ public class WorkoutManagementSys {
 			
 			int a = input.nextInt();
 			
-			if (a == 1) {
+			if (a == 1) { // user adding a info of a work day
 				System.out.println("Adding workout day...");
 				System.out.print("what day? : ");
 				String workoutDay = input.next();
@@ -31,7 +31,7 @@ public class WorkoutManagementSys {
 				System.out.println(array);
 				i = i+1;
 			}
-			else if(a == 2) {
+			else if(a == 2) { // user deleting a especial work day
 				System.out.println("Deleting a workout day...");
 			}
 			else if (a == 3) {
