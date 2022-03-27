@@ -3,12 +3,38 @@ import java.util.List;
 import java.util.Scanner;
 
 public class WorkoutManagementSys {
-
+	
+	public static void addWorkoutday(){
+		List<String> array = new ArrayList<String>();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Adding workout day...");
+		System.out.print("what day? : ");
+		String workoutDay = input.next();
+				
+		array.add(workoutDay);
+		
+		System.out.println(array);
+		int i = 0;
+		i = i+1;
+	}
+	
+	public static void deleteWorkoutday() {
+		
+	}
+	
+	public static void editWorkoutday() {
+		
+	}
+	
+	public static void viewTotal() {
+		
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
-		int i = 1;
-		List<String> array = new ArrayList<String>();
 		
 		while(true) { //show the menus until user exit the code.
 			System.out.println("1. Add Workout days");
@@ -22,14 +48,8 @@ public class WorkoutManagementSys {
 			int a = input.nextInt();
 			
 			if (a == 1) { // user adding a info of a work day
-				System.out.println("Adding workout day...");
-				System.out.print("what day? : ");
-				String workoutDay = input.next();
+				addWorkoutday();
 				
-				array.add(workoutDay);
-				
-				System.out.println(array);
-				i = i+1;
 			}
 			else if(a == 2) { // user deleting a especial work day
 				System.out.println("Deleting a workout day...");
