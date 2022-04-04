@@ -4,36 +4,10 @@ import java.util.Scanner;
 
 public class WorkoutManagementSys {
 	
-	public static void addWorkoutDay(){
-		
-		Scanner input = new Scanner(System.in);
-		System.out.println("Adding workout day...");
-		System.out.print("what day? : ");
-		String workoutDays = input.next();
-				
-		WorkoutDay workoutDay = new WorkoutDay();
-		
-		workoutDay.array.add(workoutDays);
-		System.out.println(WorkoutDay.array);
-		
-	}
-	
-	public static void deleteWorkoutDay() {
-		
-	}
-	
-	public static void editWorkoutDay() {
-		
-	}
-	
-	public static void viewTotal() {
-		
-	}
-	
-	
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		DayManage w = new DayManage();
+		
 		Scanner input = new Scanner(System.in);
 		
 		while(true) { //show the menus until user exit the code.
@@ -49,20 +23,20 @@ public class WorkoutManagementSys {
 			
 			if (a == 1) { // user adding a info of a work day
 				
-				addWorkoutDay();
+				w.addWorkoutDay();
 				
 			}
 			else if(a == 2) { // user deleting a especial work day
 				System.out.println("Deleting a workout day...");
-				deleteWorkoutDay();
+				w.deleteWorkoutDay();
 			}
 			else if (a == 3) {
 				System.out.println("Editing a workoutday...");
-				editWorkoutDay();
+				w.editWorkoutDay();
 			}
 			else if (a == 4) {
 				System.out.println("Viewing total workout days...");
-				viewTotal();
+				w.viewTotal();
 			}
 			else if (a == 5) {
 				System.out.println("Show menu...");
