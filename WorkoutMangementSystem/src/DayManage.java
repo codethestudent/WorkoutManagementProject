@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import workout.Strength;
+import workout.WorkoutDay;
+
 public class DayManage {
 	ArrayList<WorkoutDay> wd = new ArrayList<WorkoutDay>();
 	Scanner input;  
@@ -10,20 +13,42 @@ public class DayManage {
 	}
 	
 	public void addWorkoutDay(){
-		WorkoutDay workoutday = new WorkoutDay();
-		System.out.println("Adding workout day...");
 		
-		System.out.print("what day? : ");
-		workoutday.  Day = input.next();
-		System.out.print("what type? : ");
-		workoutday.type = input.next();
-		System.out.print("how many set? : ");
-		workoutday.set = input.nextInt();
-		System.out.print("how many times per set? : ");
-		workoutday.numbers = input.nextInt();
-		System.out.print("date : ");
-		workoutday.date = input.nextInt();
-		wd.add(workoutday);
+		System.out.println("Adding workout day...");
+		WorkoutDay workoutDay;
+		WorkoutDay injuries = new WorkoutDay();
+		int kind = 0;
+		
+		while (kind != 1 && kind != 2 && kind != 3) {
+			System.out.println("1.Strength Building  2.Muscle Building  3.Cardio");
+			System.out.println("select a number between 1 ~ 3 to choose a workout kind : ");
+			kind = input.nextInt();
+			if (kind == 1){
+				workoutDay = new Strength();
+				workoutDay.getUserInput(input);
+				if (injuries.possibleInjury>0) {
+					injuries.setPossibleInjury(1);
+					injuries.getPossibleInjury();
+				}
+				wd.add(workoutDay);
+				break;
+			}
+			else if (kind == 2) {
+				workoutDay = new WorkoutDay();
+				workoutDay.getUserInput(input);
+				wd.add(workoutDay);
+				break;
+			}
+			else if (kind == 3) {
+				workoutDay = new WorkoutDay();
+				wd.add(workoutDay);
+				break;
+			}
+			else {
+				System.out.println("kind num error");
+			}
+			
+		}
 	}
 	
 	public void deleteWorkoutDay() {
@@ -31,7 +56,7 @@ public class DayManage {
 		int date = input.nextInt();
 		int index = -1;
 		for(int i =0 ;i<wd.size(); i++) {
-			if (wd.get(i).date == date) {
+			if (wd.get(i).getDate() == date) {
 				index = i;
 				break;
 			}
@@ -49,16 +74,16 @@ public class DayManage {
 	public void editWorkoutDay() {
 		int index = 0;
 		System.out.println("what date to edit? : ");
-		int Day = input.nextInt();
+		int Date = input.nextInt();
 		
 		for(int i=0; i<wd.size(); i++) {
 				WorkoutDay workoutDay = wd.get(i);
 				index = i;
-				if (Day == workoutDay.date) {
+				if (Date == workoutDay.getDate()) {
 				
 					int menuChoice = -1;
 					
-					while(menuChoice !=6) {
+					while(menuChoice != 6) {
 						System.out.println("1. Edit the day");
 						System.out.println("2. Edit the type of workout");
 						System.out.println("3. Edit the number of set");
@@ -69,7 +94,7 @@ public class DayManage {
 						System.out.print("---- choose a menu ----\n input : ");
 						menuChoice = input.nextInt();
 						
-						System.out.println("The day you want to change is : " + wd.get(index).date);
+						System.out.println("The day you want to change is : " + wd.get(index).getDate());
 						
 						if (menuChoice == 6) {
 							System.out.println("editing section end");
@@ -78,20 +103,24 @@ public class DayManage {
 						
 						else if (menuChoice == 1) {
 							System.out.println("what day to change?");
-							
-							workoutDay.Day = input.next();
+							String day = input.next();
+							workoutDay.setDay(day);
 						}
 						else if (menuChoice == 2) {
 							System.out.println("Change to what type? : ");
-							wd.get(index).type = input.next();
+							workoutDay.setType(input.next());
+						}
+						else if (menuChoice == 3) {
+							System.out.println("Change to what type? : ");
+							workoutDay.setSet(input.nextInt());
 						}
 						else if (menuChoice == 4) {
 							System.out.println("Change the number of times : ");
-							wd.get(index).numbers = input.nextInt();
+							workoutDay.setNumbers(input.nextInt());
 						}
 						else if (menuChoice == 5) {
 							System.out.println("Change the date : ");
-							wd.get(index).date = input.nextInt();
+							workoutDay.setDate(input.nextInt());
 						}
 						else {
 							continue;
