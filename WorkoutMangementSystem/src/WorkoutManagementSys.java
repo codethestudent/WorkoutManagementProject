@@ -2,15 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//메뉴를 보여주고 DayManage 클래스의 메소드들을 호출 하는 메인 테스터 역할.
+//여기서 메뉴를 보여주고 사용자가 메뉴를 고르면 DayManage 클래스가 WorkoutDay 객체를 이용하여 기능들을 수행함.
+//
+
 public class WorkoutManagementSys {
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		DayManage w = new DayManage();
-		
 		Scanner input = new Scanner(System.in);
+		DayManage w = new DayManage(input);
 		
-		while(true) { //show the menus until user exit the code.
+		while(true) { //shows the menus until user exit the code.
 			System.out.println("1. Add Workout days");
 			System.out.println("2. Delete Workout days");
 			System.out.println("3. Edit Workout day");

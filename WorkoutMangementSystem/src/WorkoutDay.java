@@ -1,17 +1,29 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class WorkoutDay {
 	
-	String workoutDay;
+	String Day;
 	String type;
 	int set;
 	int numbers;
 	int date;
 	
+	public WorkoutDay() {
+		
+	}
+	
+	public WorkoutDay(String day, String type) {
+		this.Day = day;
+		this.type = type;
+	}
+	
+	public WorkoutDay(String day, String type, int set, int numbers, int date) {
+		this.Day = day;
+		this.type = type;
+		this.set = set;
+		this.date = date;
+	}
+	
 	public void printInfo() {
-		System.out.println("day : " + workoutDay + "\ntype : " + type + "\nset : " + set + "\nnumbers : " + numbers + "\ndate : " + date);
+		System.out.println("day : " + Day + " type : " + type + " set : " + set + " numbers : " + numbers + " date : " + date);
 	}
 
 }
