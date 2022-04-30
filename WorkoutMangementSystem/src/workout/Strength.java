@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Strength extends WorkoutDay{
 	
+	public Strength(WorkoutKind Kind) {
+		this.Kind = Kind;
+	}
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("what day? : ");
 		String Day = input.next();

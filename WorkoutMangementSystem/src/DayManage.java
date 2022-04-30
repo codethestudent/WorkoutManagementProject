@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import workout.Cardio;
 import workout.Strength;
 import workout.WorkoutDay;
+import workout.WorkoutKind;
 
 public class DayManage {
 	ArrayList<WorkoutDay> wd = new ArrayList<WorkoutDay>();
@@ -13,18 +15,17 @@ public class DayManage {
 	}
 	
 	public void addWorkoutDay(){
-		
 		System.out.println("Adding workout day...");
 		WorkoutDay workoutDay;
 		WorkoutDay injuries = new WorkoutDay();
 		int kind = 0;
 		
 		while (kind != 1 && kind != 2 && kind != 3) {
-			System.out.println("1.Strength Building  2.Muscle Building  3.Cardio");
+			System.out.println("1.Strength Building  \n2.Muscle Building  \n3.Cardio");
 			System.out.println("select a number between 1 ~ 3 to choose a workout kind : ");
 			kind = input.nextInt();
 			if (kind == 1){
-				workoutDay = new Strength();
+				workoutDay = new Strength(WorkoutKind.StrengthBuilding);
 				workoutDay.getUserInput(input);
 				if (injuries.possibleInjury>0) {
 					injuries.setPossibleInjury(1);
@@ -34,20 +35,20 @@ public class DayManage {
 				break;
 			}
 			else if (kind == 2) {
-				workoutDay = new WorkoutDay();
+				workoutDay = new WorkoutDay(WorkoutKind.MuscleBuilding);
 				workoutDay.getUserInput(input);
 				wd.add(workoutDay);
 				break;
 			}
 			else if (kind == 3) {
-				workoutDay = new WorkoutDay();
+				workoutDay = new Cardio(WorkoutKind.Cardio);
+				workoutDay.getUserInput(input);
 				wd.add(workoutDay);
 				break;
 			}
 			else {
 				System.out.println("kind num error");
 			}
-			
 		}
 	}
 	
@@ -68,7 +69,6 @@ public class DayManage {
 		else {
 			System.out.println("the day is not registered.");
 		}
-		
 	}
 	
 	public void editWorkoutDay() {

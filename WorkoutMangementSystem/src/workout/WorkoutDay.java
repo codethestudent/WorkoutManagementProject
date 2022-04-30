@@ -4,16 +4,21 @@ import java.util.Scanner;
 
 public class WorkoutDay {
 	
-	protected WorkoutKind workoutKind = WorkoutKind.StrengthBuilding;
+	protected WorkoutKind Kind = WorkoutKind.MuscleBuilding;
 	protected String Day;
 	protected String type;
 	protected int set;
 	protected int numbers;
 	protected int date;
+	protected String time;
 	public int possibleInjury = 0;
 	
 	public WorkoutDay() {
 		
+	}
+	
+	public WorkoutDay(WorkoutKind Kind) {
+		this.Kind = Kind;
 	}
 	
 	public WorkoutDay(String day, String type) {
@@ -27,13 +32,20 @@ public class WorkoutDay {
 		this.set = set;
 		this.date = date;
 	}
-
-	public WorkoutKind getWorkoutKind() {
-		return workoutKind;
+	public WorkoutDay(WorkoutKind kind, String day, String type, int set, int numbers, int date) {
+		this.Kind = kind;
+		this.Day = day;
+		this.type = type;
+		this.set = set;
+		this.date = date;
 	}
 
-	public void setWorkoutKind(WorkoutKind workoutKind) {
-		this.workoutKind = workoutKind;
+	public WorkoutKind getWorkoutKind() {
+		return Kind;
+	}
+
+	public void setWorkoutKind(WorkoutKind Kind) {
+		this.Kind = Kind;
 	}
 
 	public String getDay() {
@@ -51,7 +63,14 @@ public class WorkoutDay {
 	public void setType(String type) {
 		this.type = type;
 	}
-
+	
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getTime(String time) {
+		return time;
+	}
+	
 	public int getSet() {
 		return set;
 	}
@@ -84,8 +103,24 @@ public class WorkoutDay {
 		this.possibleInjury += possibleInjury;
 	}
 	
+	
 	public void printInfo() {
-		System.out.println("day : " + Day 
+		String skind = "none";
+		switch(this.Kind) {
+		case StrengthBuilding:
+			skind = "StrBuild";
+			break;
+		case MuscleBuilding:
+			skind = "MuscleBuild";
+			break;
+		case Cardio:
+			skind = "Cardio";
+			break;
+		default:
+		
+		}
+		System.out.println("kind : " + skind
+						+ " day : " + Day 
 						+ " type : " + type 
 						+ " set : " + set 
 						+ " numbers : " + numbers 
