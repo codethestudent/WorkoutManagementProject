@@ -24,7 +24,7 @@ public class Strength extends WorkoutDay{
 		}
 		else {
 			System.out.println("need some more warm-up time... too vulnerable to get injuries");
-			super.possibleInjury = 1;
+			super.injuries = 1;
 		}
 		
 		System.out.print("how many set? : ");

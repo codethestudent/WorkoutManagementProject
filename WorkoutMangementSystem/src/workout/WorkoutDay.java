@@ -11,7 +11,8 @@ public class WorkoutDay {
 	protected int numbers;
 	protected int date;
 	protected String time;
-	public int possibleInjury = 0;
+	public int injuries = 0;
+	
 	
 	public WorkoutDay() {
 		
@@ -94,15 +95,6 @@ public class WorkoutDay {
 	public void setDate(int date) {
 		this.date = date;
 	}
-
-	public int getPossibleInjury() {
-		return possibleInjury;
-	}
-	
-	public void setPossibleInjury(int possibleInjury) {
-		this.possibleInjury += possibleInjury;
-	}
-	
 	
 	public void printInfo() {
 		String skind = "none";
@@ -124,8 +116,7 @@ public class WorkoutDay {
 						+ " type : " + type 
 						+ " set : " + set 
 						+ " numbers : " + numbers 
-						+ " date : " + date 
-						+ " possible injury days : " + possibleInjury);
+						+ " date : " + date );
 	}
 	
 	public void getUserInput(Scanner input) {

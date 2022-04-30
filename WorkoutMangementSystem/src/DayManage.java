@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import workout.Cardio;
+import workout.Injury;
 import workout.Strength;
 import workout.WorkoutDay;
 import workout.WorkoutKind;
@@ -9,7 +10,8 @@ import workout.WorkoutKind;
 public class DayManage {
 	ArrayList<WorkoutDay> wd = new ArrayList<WorkoutDay>();
 	Scanner input;  
-
+	Injury injury = new Injury();
+	
 	DayManage(Scanner input){
 		this.input = input;
 	}
@@ -17,7 +19,8 @@ public class DayManage {
 	public void addWorkoutDay(){
 		System.out.println("Adding workout day...");
 		WorkoutDay workoutDay;
-		WorkoutDay injuries = new WorkoutDay();
+		
+		
 		int kind = 0;
 		
 		while (kind != 1 && kind != 2 && kind != 3) {
@@ -27,9 +30,8 @@ public class DayManage {
 			if (kind == 1){
 				workoutDay = new Strength(WorkoutKind.StrengthBuilding);
 				workoutDay.getUserInput(input);
-				if (injuries.possibleInjury>0) {
-					injuries.setPossibleInjury(1);
-					injuries.getPossibleInjury();
+				if (workoutDay.injuries == 1) {
+					injury.setPossibleInjuries(1);
 				}
 				wd.add(workoutDay);
 				break;
@@ -136,6 +138,7 @@ public class DayManage {
 		System.out.println("view total");
 		for(int i =0; i<wd.size(); i++) {
 			wd.get(i).printInfo();
-		}
+			
+		}System.out.println("possible injuries : " + injury.getPossibleInjuries() + "days");
 	}
 }

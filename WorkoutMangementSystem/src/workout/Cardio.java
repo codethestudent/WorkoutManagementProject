@@ -44,7 +44,6 @@ public class Cardio extends WorkoutDay{
 						+ " day : " + Day 
 						+ " type : " + type 
 						+ " time : " + time
-						+ " date : " + date 
-						+ " possible injury days : " + possibleInjury);
+						+ " date : " + date );
 		}
 }
