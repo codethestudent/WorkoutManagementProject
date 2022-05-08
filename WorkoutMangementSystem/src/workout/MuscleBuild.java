@@ -2,11 +2,12 @@ package workout;
 
 import java.util.Scanner;
 
-public class Cardio extends WorkoutDay implements WorkoutInput{
+public class MuscleBuild extends WorkoutDay implements WorkoutInput{
 	
-	public Cardio(WorkoutKind Kind) {
-		this.Kind = Kind;
+	public MuscleBuild(WorkoutKind Kind) {
+		super(Kind);
 	}
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("what day? : ");
 		String Day = input.next();
@@ -16,15 +17,18 @@ public class Cardio extends WorkoutDay implements WorkoutInput{
 		String type = input.next();
 		this.setType(type);
 		
-		System.out.print("total time : ");
-		String time = input.next();
-		this.setTime(time);
+		System.out.print("how many set? : ");
+		int set = input.nextInt();
+		this.setSet(set);
+		
+		System.out.print("how many times per set? : ");
+		int numbers = input.nextInt();
+		this.setNumbers(numbers);
 		
 		System.out.print("date : ");
 		int date = input.nextInt();
 		this.setDate(date);
 	}
-	
 	public void printInfo() {
 		String skind = "none";
 		switch(this.Kind) {
@@ -43,7 +47,8 @@ public class Cardio extends WorkoutDay implements WorkoutInput{
 		System.out.println("kind : " + skind
 						+ " day : " + Day 
 						+ " type : " + type 
-						+ " time : " + time
+						+ " set : " + set 
+						+ " numbers : " + numbers 
 						+ " date : " + date );
-		}
+	}
 }

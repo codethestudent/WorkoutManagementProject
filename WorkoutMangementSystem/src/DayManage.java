@@ -3,14 +3,17 @@ import java.util.Scanner;
 
 import workout.Cardio;
 import workout.Injury;
+import workout.MuscleBuild;
 import workout.Strength;
 import workout.WorkoutDay;
+import workout.WorkoutInput;
 import workout.WorkoutKind;
 
 public class DayManage {
-	ArrayList<WorkoutDay> wd = new ArrayList<WorkoutDay>();
+	ArrayList<WorkoutInput> wd = new ArrayList<WorkoutInput>();
 	Scanner input;  
 	Injury injury = new Injury();
+	Strength stre;
 	
 	DayManage(Scanner input){
 		this.input = input;
@@ -18,8 +21,8 @@ public class DayManage {
 	
 	public void addWorkoutDay(){
 		System.out.println("Adding workout day...");
-		WorkoutDay workoutDay;
-		
+		WorkoutInput workoutInput;
+		stre = new Strength();
 		
 		int kind = 0;
 		
@@ -28,24 +31,25 @@ public class DayManage {
 			System.out.println("select a number between 1 ~ 3 to choose a workout kind : ");
 			kind = input.nextInt();
 			if (kind == 1){
-				workoutDay = new Strength(WorkoutKind.StrengthBuilding);
-				workoutDay.getUserInput(input);
-				if (workoutDay.injuries == 1) {
+				workoutInput = new Strength(WorkoutKind.StrengthBuilding);
+				workoutInput.getUserInput(input);
+				if (stre.injuries == 1) {
 					injury.setPossibleInjuries(1);
 				}
-				wd.add(workoutDay);
+				wd.add(workoutInput);
+				//System.out.println(stre.injuries);
 				break;
 			}
 			else if (kind == 2) {
-				workoutDay = new WorkoutDay(WorkoutKind.MuscleBuilding);
-				workoutDay.getUserInput(input);
-				wd.add(workoutDay);
+				workoutInput = new MuscleBuild(WorkoutKind.MuscleBuilding);
+				workoutInput.getUserInput(input);
+				wd.add(workoutInput);
 				break;
 			}
 			else if (kind == 3) {
-				workoutDay = new Cardio(WorkoutKind.Cardio);
-				workoutDay.getUserInput(input);
-				wd.add(workoutDay);
+				workoutInput = new Cardio(WorkoutKind.Cardio);
+				workoutInput.getUserInput(input);
+				wd.add(workoutInput);
 				break;
 			}
 			else {
@@ -79,9 +83,9 @@ public class DayManage {
 		int Date = input.nextInt();
 		
 		for(int i=0; i<wd.size(); i++) {
-				WorkoutDay workoutDay = wd.get(i);
+				WorkoutInput workoutInput = wd.get(i);
 				index = i;
-				if (Date == workoutDay.getDate()) {
+				if (Date == workoutInput.getDate()) {
 				
 					int menuChoice = -1;
 					
@@ -106,23 +110,23 @@ public class DayManage {
 						else if (menuChoice == 1) {
 							System.out.println("what day to change?");
 							String day = input.next();
-							workoutDay.setDay(day);
+							workoutInput.setDay(day);
 						}
 						else if (menuChoice == 2) {
 							System.out.println("Change to what type? : ");
-							workoutDay.setType(input.next());
+							workoutInput.setType(input.next());
 						}
 						else if (menuChoice == 3) {
 							System.out.println("Change to what type? : ");
-							workoutDay.setSet(input.nextInt());
+							workoutInput.setSet(input.nextInt());
 						}
 						else if (menuChoice == 4) {
 							System.out.println("Change the number of times : ");
-							workoutDay.setNumbers(input.nextInt());
+							workoutInput.setNumbers(input.nextInt());
 						}
 						else if (menuChoice == 5) {
 							System.out.println("Change the date : ");
-							workoutDay.setDate(input.nextInt());
+							workoutInput.setDate(input.nextInt());
 						}
 						else {
 							continue;
@@ -139,6 +143,6 @@ public class DayManage {
 		for(int i =0; i<wd.size(); i++) {
 			wd.get(i).printInfo();
 			
-		}System.out.println("possible injuries : " + injury.getPossibleInjuries() + "days");
+		}System.out.println("possible injuries : " + injury.getPossibleInjuries() + " days");
 	}
 }

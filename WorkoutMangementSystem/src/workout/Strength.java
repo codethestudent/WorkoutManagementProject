@@ -2,7 +2,12 @@ package workout;
 
 import java.util.Scanner;
 
-public class Strength extends WorkoutDay{
+public class Strength extends WorkoutDay implements WorkoutInput{
+	public static int injuries =0;
+	
+	public Strength() {
+		
+	}
 	
 	public Strength(WorkoutKind Kind) {
 		this.Kind = Kind;
@@ -23,8 +28,8 @@ public class Strength extends WorkoutDay{
 			System.out.println("Good Job");
 		}
 		else {
-			System.out.println("need some more warm-up time... too vulnerable to get injuries");
-			super.injuries = 1;
+			System.out.println("need some more warm-up time... too easy to get injuries");
+			this.injuries = 1;
 		}
 		
 		System.out.print("how many set? : ");
@@ -38,6 +43,28 @@ public class Strength extends WorkoutDay{
 		System.out.print("date : ");
 		int date = input.nextInt();
 		this.setDate(date);
+	}
+	public void printInfo() {
+		String skind = "none";
+		switch(this.Kind) {
+		case StrengthBuilding:
+			skind = "StrBuild";
+			break;
+		case MuscleBuilding:
+			skind = "MuscleBuild";
+			break;
+		case Cardio:
+			skind = "Cardio";
+			break;
+		default:
+		
+		}
+		System.out.println("kind : " + skind
+						+ " day : " + Day 
+						+ " type : " + type 
+						+ " set : " + set 
+						+ " numbers : " + numbers 
+						+ " date : " + date );
 	}
 
 }
