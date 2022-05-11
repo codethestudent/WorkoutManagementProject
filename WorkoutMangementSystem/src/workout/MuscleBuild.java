@@ -2,33 +2,25 @@ package workout;
 
 import java.util.Scanner;
 
-public class MuscleBuild extends WorkoutDay implements WorkoutInput{
+public class MuscleBuild extends WorkoutDay {
 	
 	public MuscleBuild(WorkoutKind Kind) {
 		super(Kind);
 	}
 	
 	public void getUserInput(Scanner input) {
-		System.out.print("what day? : ");
-		String Day = input.next();
-		this.setDay(Day);
 		
-		System.out.print("what type? : ");
-		String type = input.next();
-		this.setType(type);
+		setWorkoutDay(input);
 		
-		System.out.print("how many set? : ");
-		int set = input.nextInt();
-		this.setSet(set);
+		setWorkoutType(input);
 		
-		System.out.print("how many times per set? : ");
-		int numbers = input.nextInt();
-		this.setNumbers(numbers);
+		setWorkoutSet(input);
 		
-		System.out.print("date : ");
-		int date = input.nextInt();
-		this.setDate(date);
+		setWorkoutNumbers(input);
+		
+		setWorkoutDate(input);
 	}
+	
 	public void printInfo() {
 		String skind = "none";
 		switch(this.Kind) {

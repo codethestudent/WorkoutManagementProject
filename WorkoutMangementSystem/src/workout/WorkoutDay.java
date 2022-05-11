@@ -2,7 +2,9 @@ package workout;
 
 import java.util.Scanner;
 
-public abstract class WorkoutDay {
+import exception.DayFormatException;
+
+public abstract class WorkoutDay implements WorkoutInput{
 	
 	protected WorkoutKind Kind = WorkoutKind.MuscleBuilding;
 	protected String Day;
@@ -53,10 +55,13 @@ public abstract class WorkoutDay {
 		return Day;
 	}
 
-	public void setDay(String day) {
+	public void setDay(String day) throws DayFormatException{
+		if (!day.contains("day")) {
+			throw new DayFormatException();
+		}
 		this.Day = day;
 	}
-
+ 
 	public String getType() {
 		return type;
 	}
@@ -93,9 +98,47 @@ public abstract class WorkoutDay {
 	}
 
 	public void setDate(int date) {
+
 		this.date = date;
 	}
 	
 	public abstract void printInfo();
+	
+	public void setWorkoutDay(Scanner input) {
+		String Day = "";
+		while (!Day.contains("day")) {
+			System.out.print("\nwhat day? : ");
+			Day = input.next();
+			try {
+				this.setDay(Day);
+			} catch (DayFormatException e) {
+				System.out.println("incorrect day format, please enter a day containing the word 'day'.");
+			}
+		}
+	}
+	
+	public void setWorkoutType(Scanner input) {
+		System.out.print("what type? : ");
+		String type = input.next();
+		this.setType(type);
+	}
+	
+	public void setWorkoutSet(Scanner input) {
+		System.out.print("how many set? : ");
+		int set = input.nextInt();
+		this.setSet(set);
+	}
+	
+	public void setWorkoutNumbers(Scanner input) {
+		System.out.print("how many times per set? : ");
+		int numbers = input.nextInt();
+		this.setNumbers(numbers);
+	}
+	
+	public void setWorkoutDate(Scanner input) {
+		System.out.print("date : ");
+		int date = input.nextInt();
+		this.setDate(date);
+	}
 	
 }

@@ -2,27 +2,21 @@ package workout;
 
 import java.util.Scanner;
 
-public class Cardio extends WorkoutDay implements WorkoutInput{
+public class Cardio extends WorkoutDay {
 	
 	public Cardio(WorkoutKind Kind) {
-		this.Kind = Kind;
+		super(Kind);
 	}
 	public void getUserInput(Scanner input) {
-		System.out.print("what day? : ");
-		String Day = input.next();
-		this.setDay(Day);
+		setWorkoutDay(input);
 		
-		System.out.print("what type? : ");
-		String type = input.next();
-		this.setType(type);
+		setWorkoutType(input);
 		
 		System.out.print("total time : ");
 		String time = input.next();
 		this.setTime(time);
 		
-		System.out.print("date : ");
-		int date = input.nextInt();
-		this.setDate(date);
+		setWorkoutDate(input);
 	}
 	
 	public void printInfo() {
