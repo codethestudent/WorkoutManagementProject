@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,13 +8,18 @@ import workout.Cardio;
 import workout.Injury;
 import workout.MuscleBuild;
 import workout.Strength;
-import workout.WorkoutDay;
 import workout.WorkoutInput;
 import workout.WorkoutKind;
 
-public class DayManage {
+public class DayManage implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -924934536743963328L;
+	
 	ArrayList<WorkoutInput> wd = new ArrayList<WorkoutInput>();
-	Scanner input;  
+	transient Scanner input;  
 	Injury injury = new Injury();
 	Strength stre;
 	
@@ -24,7 +30,6 @@ public class DayManage {
 	public void addWorkoutDay(){
 		
 		WorkoutInput workoutInput;
-		stre = new Strength();
 		
 		int kind = 0;
 		
@@ -36,7 +41,7 @@ public class DayManage {
 				if (kind == 1){
 					workoutInput = new Strength(WorkoutKind.StrengthBuilding);
 					workoutInput.getUserInput(input);
-					if (stre.injuries == 1) {
+					if (Strength.injuries == 1) {
 						injury.setPossibleInjuries(1);
 					}
 					wd.add(workoutInput);

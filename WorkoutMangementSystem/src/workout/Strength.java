@@ -3,6 +3,7 @@ package workout;
 import java.util.Scanner;
 
 public class Strength extends WorkoutDay {
+	
 	public static int injuries =0;
 	
 	public Strength() {
@@ -31,7 +32,7 @@ public class Strength extends WorkoutDay {
 		}
 		else {
 			System.out.println("need some more warm-up time... too easy to get injuries");
-			this.injuries = 1;
+			Strength.injuries = 1;
 		}
 	}
 	

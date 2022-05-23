@@ -1,10 +1,16 @@
 package workout;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.DayFormatException;
 
-public abstract class WorkoutDay implements WorkoutInput{
+public abstract class WorkoutDay implements WorkoutInput, Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5374290138224993800L;
 	
 	protected WorkoutKind Kind = WorkoutKind.MuscleBuilding;
 	protected String Day;
