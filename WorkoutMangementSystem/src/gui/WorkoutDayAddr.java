@@ -7,11 +7,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class WorkoutDayAddr extends JFrame {
+public class WorkoutDayAddr extends JPanel {
 	
-	public WorkoutDayAddr() {
+	WindowFrame frame;
+	
+	public WorkoutDayAddr(WindowFrame frame) {
+		
+		this.frame = frame;
+		
 		JPanel panel = new JPanel();
-		panel.setLayout(new SpringLayout());
+		panel.setLayout(new SpringLayout()); 
 		
 		JLabel labelDAY = new JLabel("DAY : ", JLabel.TRAILING);
 		JTextField fieldDAY = new JTextField(10);
@@ -48,9 +53,7 @@ public class WorkoutDayAddr extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 6, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setContentPane(panel);
+		this.add(panel);
 		this.setVisible(true);
 	}
 }

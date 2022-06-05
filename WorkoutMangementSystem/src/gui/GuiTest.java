@@ -3,10 +3,8 @@ package gui;
 public class GuiTest {
 
 	public static void main(String[] args) {
-		//MenuSelection menuSelection = new MenuSelection();
+		//WindowFrame frame = new WindowFrame();
 		
-		//WorkoutDayAddr workoutDayAddr = new WorkoutDayAddr();
 		
-		WorkoutDayViewer workoutDayViewer = new WorkoutDayViewer();
 	}
 }

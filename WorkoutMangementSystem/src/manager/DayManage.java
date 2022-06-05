@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -26,6 +27,10 @@ public class DayManage implements Serializable{
 	DayManage(Scanner input){
 		this.input = input;
 	}
+	public void setScanner(Scanner input2) {
+		this.input = input2;
+	}
+	
 	
 	public void addWorkoutDay(){
 		
@@ -161,4 +166,14 @@ public class DayManage implements Serializable{
 			
 		}System.out.println("possible injuries : " + injury.getPossibleInjuries() + " days");
 	}
+	
+	public int size() {
+		return wd.size();
+	}
+	
+	public WorkoutInput get(int index) {
+		return wd.get(index);
+	}
+
+	
 }

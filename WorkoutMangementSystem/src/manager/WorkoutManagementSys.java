@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,6 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import exception.DayFormatException;
+import gui.WindowFrame;
 import log.EventLogger;
 import workout.Strength;
 
@@ -24,6 +26,10 @@ public class WorkoutManagementSys {
 		if (w == null) {
 			w = new DayManage(input);
 		}
+		else {
+			w.setScanner(input);
+		}
+		WindowFrame frame = new WindowFrame(w);
 		selectMenu(input, w);
 		putObject(w, "WorkoutDayManager.ser");
 	}
@@ -104,6 +110,7 @@ public class WorkoutManagementSys {
 		
 		return w;
 	}
+	
 	public static void putObject(DayManage w, String filename) {
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
