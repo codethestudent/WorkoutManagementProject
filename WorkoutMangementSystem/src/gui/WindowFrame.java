@@ -22,7 +22,7 @@ public class WindowFrame extends JFrame{
 		
 		this.dayManage = dayManage;
 		menuSelection = new MenuSelection(this);
-		workoutDayAddr = new WorkoutDayAddr(this);
+		workoutDayAddr = new WorkoutDayAddr(this, this.dayManage);
 		workoutDayViewer = new WorkoutDayViewer(this, this.dayManage);
 
 		

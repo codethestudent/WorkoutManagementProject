@@ -1,4 +1,0 @@
-6월 05, 2022 8:39:39 오후 log.EventLogger log
-정보: add a workout day
-6월 05, 2022 8:39:41 오후 log.EventLogger log
-정보: view total

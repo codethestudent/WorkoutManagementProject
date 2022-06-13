@@ -7,13 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import event.WorkoutDayAdderCancelListener;
+import event.WorkoutDayAdderListener;
+import manager.DayManage;
+
 public class WorkoutDayAddr extends JPanel {
 	
 	WindowFrame frame;
+	DayManage dayManage;
 	
-	public WorkoutDayAddr(WindowFrame frame) {
+	public WorkoutDayAddr(WindowFrame frame, DayManage dayManage) {
 		
 		this.frame = frame;
+		this.dayManage = dayManage;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout()); 
@@ -48,8 +54,14 @@ public class WorkoutDayAddr extends JPanel {
 		panel.add(labelNUMBERS);
 		panel.add(fieldNUMBERS);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new WorkoutDayAdderListener(fieldDAY, fieldTYPE, fieldSET, fieldNUMBERS, fieldDATE, dayManage));
+		
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new WorkoutDayAdderCancelListener(frame));
+		
+		panel.add(saveButton);
+		panel.add(cancelButton);
 		
 		SpringUtilities.makeCompactGrid(panel, 6, 2, 6, 6, 6, 6);
 		

@@ -31,6 +31,14 @@ public class DayManage implements Serializable{
 		this.input = input2;
 	}
 	
+	public void addWorkoutDay(String day, String type, String set, String numbers, String date) {
+		WorkoutInput workoutInput = new MuscleBuild(WorkoutKind.MuscleBuilding);
+		workoutInput.getUserInput(input);
+		wd.add(workoutInput);
+	}
+	public void addWorkoutDay(WorkoutInput workoutInput) {
+		wd.add(workoutInput);
+	}
 	
 	public void addWorkoutDay(){
 		
